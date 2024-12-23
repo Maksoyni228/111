@@ -1,0 +1,48 @@
+/* styles/TestTaskSection.css */
+
+/* Контейнер для раздела */
+.test-task-section {
+    padding-left: 20px; /* Отступ слева */
+    padding-right: 20px; /* Отступ справа */
+    background-color: white;
+    text-align: left; /* Центрирование текста */
+    width: 100%;
+}
+
+.task-description h6 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* Адаптивность */
+@media (max-width: 1199px) {
+    .test-task-section {
+        width: 100%; /* Уменьшаем ширину для планшетов */
+    }
+}
+
+@media (max-width: 735px) {
+    .test-task-section {
+        width: 100%; /* Используем всю ширину для мобильных устройств */
+    }
+    .test-task-section h1 {
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 900;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+    .test-task-section h5 {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+}
+
+

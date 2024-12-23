@@ -1,0 +1,38 @@
+/* Footer Styles */
+.footer {
+    clear: both;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #ffffff;
+    color: #1B1B1B;
+    position: relative;
+    width: 100%;
+}
+
+/* Use grid container */
+.footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--gutter-width);
+}
+
+.footer-content {
+    font-size: 16px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+    .footer-content {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 735px) {
+    .footer-content {
+        font-size: 12px;
+    }
+    .footer {
+        padding: 10px 0;
+    }
+}

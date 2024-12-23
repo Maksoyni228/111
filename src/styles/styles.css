@@ -1,0 +1,214 @@
+@font-face {
+    font-family: 'Graphik';
+    src: url("../fonts/Graphik-Regular-Web.eot");
+    src: url("../fonts/Graphik-Regular-Web.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Graphik-Regular-Web.woff2") format("woff2"),
+    url("../fonts/Graphik-Regular-Web.woff") format("woff"),
+    url("../fonts/Graphik-Regular-Web.ttf") format("truetype");
+}
+@font-face {
+    font-style: italic;
+    font-weight: normal;
+    font-family: 'Graphik';
+    src: url("../fonts/Graphik-RegularItalic-Web.eot");
+    src: url("../fonts/Graphik-RegularItalic-Web.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Graphik-RegularItalic-Web.woff2") format("woff2"),
+    url("../fonts/Graphik-RegularItalic-Web.woff") format("woff"),
+    url("../fonts/Graphik-RegularItalic-Web.ttf") format("truetype");
+}
+@font-face {
+    font-weight: 500;
+    font-style: normal;
+    font-family: 'Graphik';
+    src: url("../fonts/Graphik-Medium-Web.eot");
+    src: url("../fonts/Graphik-Medium-Web.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Graphik-Medium-Web.woff2") format("woff2"),
+    url("../fonts/Graphik-Medium-Web.woff") format("woff"),
+    url("../fonts/Graphik-Medium-Web.ttf") format("truetype");
+}
+
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: 'Graphik';
+    src: url("../fonts/Graphik-Bold-Web.eot");
+    src: url("../fonts/Graphik-Bold-Web.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Graphik-Bold-Web.woff2") format("woff2"),
+    url("../fonts/Graphik-Bold-Web.woff") format("woff"),
+    url("../fonts/Graphik-Bold-Web.ttf") format("truetype");
+}
+
+
+@font-face {
+    font-weight: 900;
+    font-style: normal;
+    font-family: 'Graphik';
+    src: url("../fonts/Graphik-Black-Web.eot");
+    src: url("../fonts/Graphik-Black-Web.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Graphik-Black-Web.woff2") format("woff2"),
+    url("../fonts/Graphik-Black-Web.woff") format("woff"),
+    url("../fonts/Graphik-Black-Web.ttf") format("truetype");
+}
+
+body {
+    font-family: 'Graphik', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.heading {
+    color: #1B1B1B; /* Цвет подзаголовка */
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    font-weight: 400;
+    display: block;
+}
+
+h1 {
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 900;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h5 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h6 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h8 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h10 {
+    color: #7D7D7D;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* Общие стили для контейнеров */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Устранение проблем с переполнением */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.main-content {
+    margin-left: 20%;
+    padding: 20px;
+}
+
+/* Global Styles for Adaptive Grid */
+:root {
+    /* Default (Desktop) */
+    --content-width: 1200px;
+    --columns: 12;
+    --column-width: 80px;
+    --gutter-width: 32px;
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+    :root {
+        --content-width: 928px;
+        --columns: 8;
+        --column-width: 72px;
+        --gutter-width: 32px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 735px) {
+    :root {
+        --content-width: 424px;
+        --columns: 4;
+        --column-width: 72px;
+        --gutter-width: 24px;
+    }
+}
+
+/* Grid System */
+.container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--gutter-width);
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: var(--gutter-width);
+}
+
+/* Example usage for a component */
+.header, .footer {
+    grid-column: span var(--columns);
+}
+
+.main-content {
+    grid-column: span 8; /* Adjust as needed per design */
+}

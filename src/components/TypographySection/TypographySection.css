@@ -1,0 +1,297 @@
+/* styles/TypographySection.css */
+
+.typography-section {
+    padding: 20px;
+}
+
+.selector {
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.selector button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #7D7D7D;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 0 20px;
+    transition: color 0.3s ease;
+}
+
+.selector button.active {
+    color: #1B1B1B;
+}
+
+.selector-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #CBCBCC;
+}
+
+.selector-active-line {
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    background-color: #3E29E3;
+    transition: left 0.3s ease, width 0.3s ease;
+}
+
+.typography-list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.typography-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 40%;
+}
+
+.typography-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.typography-title {
+    display: block;
+    gap: 10px;
+    align-items: center;
+}
+
+.typography {
+    color: #7D7D7D;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.desc_typography-h1 {
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.desc_typography-h2 {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.desc_typography-h3 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.desc_typography-h4 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.desc_typography-h5 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.desc_typography-h6 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.desc_typography-h7 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.desc_typography-h8 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.phone_typography-h1 {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.phone_typography-h2 {
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.phone_typography-h3 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.phone_typography-h4 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.phone_typography-h5 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.phone_typography-h6 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.phone_typography-h7 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.phone_typography-h8 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .typography-section {
+        padding: 15px;
+    }
+    .typography-list {
+        flex-direction: column;
+    }
+    .typography-column {
+        width: 100%;
+    }
+    .desc_typography-h1, .phone_typography-h1 {
+        font-size: 40px;
+        line-height: 48px;
+    }
+    .desc_typography-h2, .phone_typography-h2 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    .desc_typography-h3, .phone_typography-h3 {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .desc_typography-h4, .phone_typography-h4 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 735px) {
+    .typography-section {
+        padding: 10px;
+    }
+    .desc_typography-h1, .phone_typography-h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .desc_typography-h2, .phone_typography-h2 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .desc_typography-h3, .phone_typography-h3 {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .typography-section h2 {
+        font-size: 28px;
+        line-height: 36px;
+        font-weight: 800;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .typography-section {
+        padding: 5px;
+    }
+    .desc_typography-h1, .phone_typography-h1 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .desc_typography-h2, .phone_typography-h2 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .desc_typography-h3, .phone_typography-h3 {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+.typography-section h6 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

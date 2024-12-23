@@ -1,0 +1,120 @@
+/* Header Styles */
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+/* Use grid container */
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo */
+.header-left .logo img {
+    height: 75px;
+    margin-left: var(--gutter-width);
+}
+
+/* Developer Info */
+.header-left .developer-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+
+    .header {
+        display: flex;
+    }
+    .header-left .logo img {
+        height: 60px;
+    }
+    .header-left .developer-info {
+        font-size: 14px;
+    }
+
+    .menu-toggle {
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 735px) {
+    .header {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 5px 10px;
+    }
+    .header-left {
+        width: 70%; /* Задаём ширину для логотипа и информации */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .header-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .menu-toggle {
+        margin-right: 10px;
+    }
+    .header-left .developer-info {
+        font-size: 14px;
+        text-align: center;
+    }
+    .header-left .logo img {
+        height: 60px;
+        margin-left: 10px;
+    }
+}
+
+/* Кнопка для открытия всплывающего окна */
+.header-right .menu-toggle {
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 32px;
+    height: 2px;
+    margin-right: 20px;
+    background-color: #1B1B1B;
+    transition: 0.4s;
+}
+
+.menu-toggle .bar1 {
+    width: 24px;
+    height: 2px;
+    margin-top: 5px;
+    margin-left: 8px;
+    background-color: #1B1B1B;
+    transition: 0.4s;
+}
+
+.menu-toggle:hover .bar {
+    background-color: #7D7D7D;
+}
+
+.menu-toggle:hover .bar1 {
+    background-color: #7D7D7D;
+}
+
+.fam {
+    font-weight: 500;
+    text-align: left;
+}

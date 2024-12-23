@@ -1,0 +1,131 @@
+/* Контейнер для кнопок */
+.buttons-container {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение кнопок */
+    gap: 20px; /* Отступ между рядами кнопок */
+}
+
+/* Ряд кнопок */
+.buttons-container .row {
+    display: flex;
+    justify-content: flex-start; /* Выравнивание кнопок по левому краю */
+    gap: 20%; /* Расстояние между кнопками */
+    align-items: center; /* Центрируем кнопки по вертикали */
+    margin-top: 0;
+}
+
+/* Группа кнопки с подписью */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* Подписи для кнопок */
+.button-label {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #7D7D7D;
+}
+
+/* Стили для кнопки */
+.button {
+    width: 148px;
+    height: 56px;
+    border: none;
+    border-radius: 32px;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    background: linear-gradient(50deg, #dd80ed, #3D28E3); /* Градиент фиолетовых оттенков */
+}
+
+/* Состояние при наведении */
+.button:hover {
+    background: linear-gradient(200deg, #DD80ED, #3D28E3); /* Градиент при hover */
+}
+
+/* Состояние при нажатии */
+.button:active {
+    background: linear-gradient(190deg, #DD80ED, #3D28E3); /* Градиент при active */
+}
+
+/* Состояние для неактивной кнопки */
+.button:disabled {
+    background: linear-gradient(100deg, #CBCBCC, #CBCBCC); /* Градиент для неактивной кнопки */
+    color: #ffffff; /* Цвет текста для неактивной кнопки */
+    cursor: not-allowed; /* Курсор для неактивной кнопки */
+}
+
+/* Состояние "залоченной" кнопки при наведении */
+.button.hovered {
+    background: linear-gradient(200deg, #DD80ED, #3D28E3); /* Используем стили как при hover */
+    color: #ffffff;
+    cursor: not-allowed;
+}
+
+/* Состояние "залоченной" кнопки при нажатии */
+.button.pressed {
+    background: linear-gradient(190deg, #DD80ED, #3D28E3); /* Используем стили как при active */
+    color: #ffffff;
+    cursor: not-allowed;
+}
+
+/* Выравнивание всех кнопок на одном уровне */
+.buttons-container .row .button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Выравнивание по левому краю */
+    justify-content: center;
+}
+
+/* Если кнопка неактивна, оставляем правильные отступы */
+.buttons-container .row .button-group .button:disabled {
+    margin-top: 0; /* Убираем лишние отступы для неактивной кнопки */
+}
+
+/* Для первой кнопки без подписи */
+.button-group.no-label {
+    margin-top: 20px; /* Добавляем отступ сверху для компенсации отсутствия подписи */
+}
+
+.button-label {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #7D7D7D;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+    .button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    .button-label {
+        font-size: 12px;
+    }
+    .buttons-container .row {
+        gap: 10%; /* Уменьшаем расстояние между кнопками */
+    }
+}
+
+@media (max-width: 735px) {
+    .button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    .button-label {
+        font-size: 10px;
+    }
+    .buttons-container {
+        gap: 10px; /* Уменьшаем расстояние между рядами кнопок */
+    }
+    .buttons-container .row {
+        flex-direction: column; /* Переключаем кнопки на вертикальное расположение */
+        gap: 10px;
+    }
+}

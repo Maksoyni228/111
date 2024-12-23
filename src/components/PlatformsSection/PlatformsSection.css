@@ -1,0 +1,84 @@
+/* Контейнер для раздела */
+.platforms-section {
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+    background-color: #ffffff;
+    position: relative; /* Родитель для абсолютного позиционирования */
+    width: 100%; /* Контейнер остаётся фиксированным */
+    z-index: 1; /* Убедимся, что текст располагается поверх фона */
+}
+
+/* Сетка для ячеек */
+.platforms-section .grid {
+    display: flex; /* Используем flexbox для выравнивания ячеек в ряд */
+    gap: 40px; /* Отступ между ячейками */
+    margin-top: 10px;
+    margin-bottom: 40px;
+    text-align: left;
+    flex-wrap: wrap; /* Позволяем ячейкам переноситься на следующую строку */
+}
+
+/* Ячейка */
+.platforms-section .cell {
+    flex: 1 1 calc(20% - 40px); /* Адаптивная ширина с учётом отступов */
+    background-color: #ffffff; /* Цвет фона ячеек */
+    text-align: left;
+    box-sizing: border-box; /* Учитываем отступы и границы в размерах */
+}
+
+.platforms-section img {
+    width: 100%;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+/* Адаптивность */
+@media (max-width: 1199px) {
+    .platforms-section .cell {
+        flex: 1 1 calc(50% - 40px); /* 2 ячейки в строке на планшетах */
+    }
+}
+
+@media (max-width: 735px) {
+    .platforms-section .cell {
+        flex: 1 1 100%; /* 1 ячейка в строке на мобильных устройствах */
+    }
+    .platforms-section h2 {
+        font-size: 28px;
+        line-height: 36px;
+        font-weight: 800;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+    .platforms-section h3 {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 500;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+}
+
+.platforms-section h6 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.platforms-section h4 {
+    color: #7D7D7D;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+

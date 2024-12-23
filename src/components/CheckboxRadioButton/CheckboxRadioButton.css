@@ -1,0 +1,179 @@
+/* Контейнер для чекбоксов и радиокнопок */
+.checkbox-radio-container {
+    display: flex;
+    gap: 20%; /* Отступ между столбиками */
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* Стили для столбиков */
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Отступ между элементами в столбике */
+}
+
+input[name="checkbox1"]:checked + .button_text,
+input[name="radio-group"]:checked + .button_text {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #1B1B1B;
+
+}
+
+input[name="checkbox1"]:hover + .button_text,
+input[name="radio-group"]:hover + .button_text {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #1B1B1B;
+
+}
+
+/* Стили для меток */
+.column label {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Отступ между кнопкой и текстом */
+    font-size: 14px;
+    padding-left: 5px; /* Отступ слева */
+    padding-right: 5px; /* Отступ справа */
+}
+
+/* Стили для радиокнопок */
+input[type="radio"] {
+    -webkit-appearance: none; /* Убираем стили для Webkit-браузеров */
+    -moz-appearance: none; /* Убираем стили для Firefox */
+    appearance: none; /* Общий сброс для всех браузеров */
+    border-radius: 50%; /* Сделать радиокнопку круглой */
+    border: 2px solid #AEADAE; /* Добавляем границу */
+    width: 24px; /* Размер радиокнопки */
+    height: 24px; /* Размер радиокнопки */
+    background-color: #fff; /* Белый фон */
+    position: relative; /* Для псевдоэлемента */
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Плавный переход */
+}
+
+/* Состояние hover для радиокнопок */
+input[type="radio"]:hover {
+    border-color: #3E29E3; /* Цвет рамки при наведении */
+}
+
+/* Состояние hover для второй радиокнопки */
+input[type="radio"].hover-radio {
+    border-color: #3E29E3; /* Цвет рамки */
+}
+
+/* Внутренний круг для активной радиокнопки */
+input[type="radio"]:checked::before {
+    content: ''; /* Создаем псевдоэлемент */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px; /* Диаметр внутреннего круга */
+    height: 12px; /* Диаметр внутреннего круга */
+    transform: translate(-50%, -50%); /* Центрируем */
+    border-radius: 50%; /* Делаем внутренний круг кругом */
+    background-color: #3E29E3; /* Цвет внутреннего круга */
+}
+
+/* Состояние checked для радиокнопки */
+input[type="radio"]:checked {
+    border-color: #3E29E3; /* Цвет рамки */
+}
+
+/* Стили для чекбоксов */
+input[type="checkbox"] {
+    -webkit-appearance: none; /* Убираем стили для Webkit-браузеров */
+    -moz-appearance: none; /* Убираем стили для Firefox */
+    appearance: none; /* Общий сброс для всех браузеров */
+    border-radius: 0; /* Убираем скругления */
+    border: 2px solid #AEADAE; /* Добавляем границу */
+    width: 24px; /* Размер чекбокса */
+    height: 24px; /* Размер чекбокса */
+    background-color: #fff; /* Белый фон */
+    position: relative; /* Для псевдоэлемента */
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Плавный переход */
+}
+
+/* Состояние hover для чекбоксов */
+input[type="checkbox"]:hover {
+    border-color: #3E29E3; /* Цвет рамки при наведении */
+}
+
+/* Состояние hover для второго чекбокса */
+input[type="checkbox"].hover-checkbox {
+    border-color: #3E29E3; /* Цвет рамки */
+}
+
+/* Галочка в чекбоксе при выборе */
+input[type="checkbox"]:checked {
+    border-color: #3E29E3; /* Цвет рамки */
+    background-color: #3E29E3; /* Заливка чекбокса */
+}
+
+input[type="checkbox"]:checked::before,
+input[type="checkbox"]:checked::after {
+    content: ''; /* Создаем линии галочки */
+    position: absolute;
+    background-color: #fff; /* Цвет линий галочки */
+}
+
+input[type="checkbox"]:checked::before {
+    width: 2px; /* Толщина линии */
+    height: 10px; /* Длина вертикальной линии */
+    top: 5px; /* Позиция вертикальной линии */
+    left: 11px; /* Позиция вертикальной линии */
+    transform: rotate(45deg); /* Наклоняем линию */
+}
+
+input[type="checkbox"]:checked::after {
+    width: 7px; /* Длина горизонтальной линии */
+    height: 2px; /* Толщина горизонтальной линии */
+    top: 10px; /* Позиция горизонтальной линии */
+    left: 4px; /* Позиция горизонтальной линии */
+    transform: rotate(45deg); /* Наклоняем линию */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+    .checkbox-radio-container {
+        flex-direction: column;
+        gap: 15%;
+    }
+    .column {
+        gap: 20px;
+    }
+    input[name="checkbox1"]:checked + h10,
+    input[name="radio-group"]:checked + h10 {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+@media (max-width: 735px) {
+    .checkbox-radio-container {
+        gap: 10%;
+    }
+    .column {
+        gap: 10px;
+    }
+    input[name="checkbox1"]:checked + h10,
+    input[name="radio-group"]:checked + h10 {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+.button_text {
+    color: #AEADAE;
+}

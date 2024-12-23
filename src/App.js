@@ -1,75 +1,88 @@
-import React, { useState } from 'react';
-import UISection from './UISection';
-import TextField from './TextField';
-import CheckboxRadioButton from './CheckboxRadioButton';
-import Footer from './Footer';
-import logo from './logo.png';
+// src/App.js
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Main from './Main';
+import Footer from './components/Footer/Footer';
+import Menu from './components/Menu/Menu';
+import LeftPanel from './components/LeftPanel/LeftPanel';
+import './components/Header/Header.css';
+import './components/Menu/Menu.css';
+import './components/Footer/Footer.css';
+import './components/LeftPanel/LeftPanel.css';
 
-const App = () => {
+function App() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState(null); // Добавляем состояние для активной секции
 
-    // Функции для открытия и закрытия меню
-    const openMenu = () => setIsMenuOpen(true);
-    const closeMenu = () => setIsMenuOpen(false);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            // Рассчитываем отступ, чтобы не докручивать до конца
+            const offset = 100; // Размер отступа в пикселях (можно настроить)
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            // Прокручиваем страницу с отступом
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            setActiveSection(sectionId); // Обновляем активную секцию при прокрутке
+        } else {
+            console.error(`Section with id "${sectionId}" not found.`);
+        }
+    };
+
+    // Функция для отслеживания текущей секции при прокрутке
+    const handleScroll = () => {
+        const sections = ['TestTaskSection', 'PlatformsSection', 'TypographySection', 'UI'];
+        let currentSection = null;
+
+        sections.forEach((section) => {
+            const element = document.getElementById(section);
+            if (element) {
+                const rect = element.getBoundingClientRect();
+                // Если верхняя часть элемента находится в поле зрения
+                if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                    currentSection = section;
+                }
+            }
+        });
+
+        if (currentSection !== activeSection) {
+            setActiveSection(currentSection);
+        }
+    };
+
+    // Подключаем обработчик события scroll
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [activeSection]); // Зависимость от activeSection
 
     return (
-        <div>
-            {/* Шапка страницы */}
-            <header className="header">
-                <div className="header-left">
-                    <div className="logo">
-                        <img src={logo} alt="Logo" />
-                    </div>
-                    <div className="developer-info">
-                        <p>Иван Иванов</p>
-                    </div>
-                </div>
-                <nav className="header-nav">
-                    <ul>
-                        <li><a href="#">Напутственное слово</a></li>
-                        <li><a href="#">Сетка</a></li>
-                        <li><a href="#">Типографика</a></li>
-                        <li><a href="#">UI</a></li>
-                    </ul>
-                </nav>
-                <div className="header-right">
-                    <button className="menu-toggle" onClick={openMenu}>
-                        ☰
-                    </button>
-                </div>
-            </header>
-
-            {/* Всплывающее окно */}
-            <div className={`popup-menu ${isMenuOpen ? 'open' : ''}`}>
-                <div className="popup-menu-content">
-                    <button className="close-btn" onClick={closeMenu}>×</button>
-                    <div className="popup-left-panel">
-                        <div className="logo">
-                            <img src={logo} alt="Logo"/>
-                        </div>
-                        <p className="task">Задание выполнил</p>
-                        <h2>Михайлов Максим Михайлович</h2>
-                        <p className="description">Студент 3 курса КГТТ.</p>
-                        <p className="description">Специальность: информационные системы и программирование</p>
-                        <p className="phone">Телефон: +7 (123) 456-78-90</p>
-                        <p className="telegram">Telegram: <a href="https://t.me/username" target="_blank"
-                                                             rel="noopener noreferrer">@username</a></p>
-                    </div>
-                </div>
+        <Router>
+            <div className="app">
+                <Header toggleMenu={toggleMenu}/>
+                <Menu isOpen={isMenuOpen} toggleMenu={toggleMenu}/>
+                <LeftPanel scrollToSection={scrollToSection} activeSection={activeSection}/> {/* Передаем activeSection */}
+                <main className="main-content">
+                    <Routes>
+                        <Route path="/" element={<Main/>}/>
+                    </Routes>
+                </main>
+                <Footer/>
             </div>
-
-            {/* Основное содержимое сайта */}
-            <main>
-            <h1>Тестовое задание</h1>
-                <p>Привет! Твоё тестовое задание — грамотно заверстать эту прекрасную страничку...</p>
-                <UISection />
-                <TextField />
-                <CheckboxRadioButton />
-            </main>
-
-            <Footer />
-        </div>
+        </Router>
     );
-};
+}
 
 export default App;

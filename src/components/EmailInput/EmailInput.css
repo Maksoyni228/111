@@ -1,0 +1,110 @@
+.email-input-container {
+    display: flex; /* Используем flexbox для расположения полей в одну строку */
+    gap: 20px; /* Отступы между полями */
+    justify-content: flex-start; /* Поля выравниваются по левому краю */
+    /* Контейнер занимает всю ширину родительского элемента */
+    flex-wrap: wrap;
+    max-width: 280px;
+    width: 280px;
+}
+
+.email-input {
+
+    margin-bottom: 60px; /* Отступ снизу */
+    position: relative;
+}
+
+.email-input input {
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #AEADA3; /* Нижняя граница для стилизации */
+    width: 280px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.email-input input:hover {
+    border-bottom: 2px solid #3E29E3;
+}
+
+.email-input input:focus {
+    outline: none;
+    border-bottom: 3px solid #3E29E3;
+}
+
+.email-input input.error {
+    border-bottom: 3px solid #E80F3B;
+}
+
+/* Сообщение об ошибке */
+.error-message {
+    color: #E80F3B;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    position: absolute;
+    top: 60px; /* Увеличиваем отступ между полем и сообщением об ошибке */
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Подпись лейбла */
+.input-label {
+    font-size: 14px;
+    line-height: 0;
+    font-weight: 400;
+    color: #AEADAE;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.2s ease;
+    pointer-events: none; /* Чтобы лейбл не мешал вводу */
+}
+
+.email-input input:focus + .input-label,
+.email-input input:not(:placeholder-shown) + .input-label {
+    top: -20px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    color: #3E29E3;
+}
+
+.email-input label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: #7D7D7D;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+    .email-input-container {
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .email-input input {
+        font-size: 14px;
+    }
+    .email-input label {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 735px) {
+    .email-input-container {
+        flex-direction: column; /* Переключаемся на вертикальное расположение */
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .email-input input {
+        font-size: 12px;
+    }
+    .email-input label {
+        font-size: 8px;
+    }
+}

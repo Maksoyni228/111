@@ -1,0 +1,32 @@
+/* Main Styles */
+.main {
+    margin-top: 100px; /* Space for fixed header */
+    padding: 0 var(--gutter-width);
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: var(--gutter-width);
+}
+
+/* Sections */
+.main > div {
+    grid-column: span var(--columns);
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+    .main > div {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 735px) {
+    .main > div {
+        padding: 10px;
+    }
+    .main {
+        margin-top: 80px; /* Adjust for smaller header */
+    }
+}

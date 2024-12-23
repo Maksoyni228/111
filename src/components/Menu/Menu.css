@@ -1,0 +1,225 @@
+/* Updated Popup Menu Styles */
+.popup-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center; /* Выравнивание по левому краю */
+    align-items: center;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-left-panel .logo h6 {
+    font-size: 14px;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 10000; /* Убедитесь, что кнопка сверху */
+    padding: 10px; /* Дополнительное пространство для кликабельности */
+    border-radius: 50%; /* Закругленные края */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #7D7D7D;
+}
+
+
+
+/* When menu is open */
+.popup-menu.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Popup Content Container */
+.popup-menu-content {
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    height: 80vh;
+    position: relative;
+    background-image: url('../../img/bg.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    padding: 15px;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #AEADAE;
+}
+
+/* Left Panel */
+.popup-left-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    width: 55%; /* Фиксированная ширина панели */
+    max-height: 97%;
+    background-color: #FFFFFF;
+    margin: 12px 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative; /* Для нижнего выравнивания */
+}
+
+/* Логотип с текстом "Задание выполнил" */
+.popup-left-panel .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 60px; /* Фиксированная высота для предотвращения смещений */
+}
+
+.popup-left-panel .logo img {
+    height: 60px;
+    margin-right: 15px;
+}
+
+.popup-left-panel .logo-text {
+    font-size: 14px;
+    line-height: 20px;
+    color: #7D7D7D;
+}
+
+.popup-left-panel h2,
+.popup-left-panel .info,
+.popup-left-panel .phone {
+    margin-left: 15%; /* Отступ в 15% от левого края */
+    text-align: left;
+}
+
+.popup-left-panel h2 {
+    font-size: 32px;
+    margin-top: 0;
+}
+
+.popup-left-panel .info {
+    margin-bottom: 20px;
+}
+
+.popup-left-panel .phone {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #1B1B1B;
+}
+
+/* Секция с логотипом и ссылкой внизу */
+.popup-left-panel .bottom-section {
+    display: flex;
+    justify-content: flex-start; /* Выравнивание логотипа и ссылки */
+    align-items: center;
+    margin-top: auto; /* Выталкивает секцию вниз */
+    padding-bottom: 20px; /* Отступ снизу */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.popup-left-panel .bottom-section .logo {
+    margin-right: 15px;
+}
+
+.popup-left-panel .bottom-section .telegram a {
+    color: #3E29E3;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    white-space: nowrap; /* Предотвращает разрывы текста */
+    display: inline-block; /* Сохраняет текст как единое целое */
+}
+
+.popup-left-panel .bottom-section .telegram a:hover {
+    color: #1b5de4;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+    .popup-menu-content {
+        flex-direction: column;
+        width: 95%;
+        height: auto;
+        position: fixed;
+    }
+
+    .popup-left-panel {
+        width: 55%; /* Сохранение фиксированной ширины */
+        height: 97%;
+        margin: 12px 0;
+        padding: 15px;
+    }
+    .popup-left-panel .phone {
+        font-size: 16px;
+    }
+    .popup-left-panel .telegram a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 735px) {
+    .popup-menu-content {
+        flex-direction: column;
+        width: 95%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .popup-left-panel {
+        width: 55%; /* Панель остаётся выровненной по левому краю */
+        height: auto;
+        margin: 12px 0;
+        padding: 15px;
+    }
+
+    .popup-left-panel .logo img {
+        height: 60px;
+    }
+
+    .popup-left-panel h2 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .popup-left-panel .phone,
+    .popup-left-panel .telegram a {
+        font-size: 16px;
+    }
+
+    .popup-left-panel .telegram a {
+        display: inline-block;
+    }
+}

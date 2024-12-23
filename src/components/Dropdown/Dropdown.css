@@ -1,0 +1,180 @@
+/* Стили для контейнера отдельного выпадающего списка */
+.dropdown {
+    position: relative;
+    margin-bottom: 140px; /* Отступ снизу для каждого выпадающего списка */
+    margin-top: 20px;
+    white-space: wrap;
+    max-width: 280px;
+    width: 280px;
+}
+
+/* Стрелочка в выпадающем списке */
+.dropdown::before,
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-right: 5px;
+    width: 6px;
+    height: 2px;
+    background-color: #3E29E3;
+    transition: transform 0.3s ease; /* Плавное изменение трансформации */
+    transform-origin: center; /* Точка вращения */
+    right: 0; /* Выровнено по правому краю */
+}
+
+/* Стрелочка, когда выпадающий список закрыт (смотрит вниз) */
+.dropdown::before {
+    transform: translateY(-60%) translateX(60%) rotate(140deg);
+}
+
+.dropdown::after {
+    transform: translateY(-60%) translateX(0%) rotate(220deg);
+}
+
+/* Стрелочка, когда выпадающий список открыт (смотрит вверх) */
+.dropdown.open::before {
+    transform: translateY(60%) translateX(60%) rotate(40deg); /* Поворот на 180 градусов */
+}
+
+.dropdown.open::after {
+    transform: translateY(60%) translateX(0%) rotate(-40deg); /* Поворот на 180 градусов */
+}
+
+/* Стили для инпута в выпадающем списке */
+.dropdown input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #AEADAE;
+    background-color: transparent;
+    transition: border-color 0.3s ease;
+    height: 45px; /* Фиксированная высота для поля ввода */
+    box-sizing: border-box; /* Учитываем padding при расчете ширины */
+}
+
+/* Более строгий стиль для input в состоянии hovered */
+.dropdown input:hover:not(:focus) {
+    border-bottom-color: #3E29E3; /* Только когда input не в фокусе */
+}
+
+/* Состояние при фокусе на поле ввода */
+.dropdown input:focus {
+    outline: none;
+    border-bottom-color: #3E29E3;
+}
+
+/* Состояние при наведении на input */
+.dropdown input:hover {
+    border-bottom-color: #3E29E3;
+}
+
+/* Стили для списка опций выпадающего списка */
+.dropdown-list {
+    position: absolute;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Убедиться, что список не перекрывает кнопки */
+    display: none; /* Скрываем список по умолчанию */
+    overflow-y: auto; /* Добавляем прокрутку, если слишком много опций */
+    word-wrap: break-word;
+    flex-wrap: wrap;
+    max-width: 280px;
+
+}
+
+.dropdown h7 {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 10px;
+}
+
+/* Стили для отдельных элементов списка */
+.dropdown-list li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: inline-block;
+    width: 100%;
+    flex-basis: 100%;
+}
+
+/* Стили для hovered состояния списка */
+.dropdown-list li.hovered {
+    background-color: #3E29E3; /* Яркий фон для hovered элемента */
+    color: #ffffff; /* Белый текст для hovered элемента */
+}
+
+/* Обновляем стили для hovered */
+.hovered {
+    background-color: #3E29E3 !important;
+    color: #ffffff !important;
+}
+
+/* Стили для выделенного элемента в списке */
+.dropdown-list li.selected {
+    background-color: transparent; /* Фон остается прежним */
+    color: #3E29E3; /* Меняется только цвет текста */
+}
+
+/* Убедимся, что selected не конфликтует */
+.selected {
+    background-color: transparent;
+    color: #3E29E3;
+}
+
+/* Показываем список */
+.dropdown-list.show {
+    display: block;
+}
+
+/* Стили для заблокированного (выбранного) элемента */
+.locked-selected {
+    background-color: #ffffff; /* Фон остается белым */
+    color: #3D28E1; /* Цвет текста для выбранного элемента */
+}
+
+/* Стили для всех блокированных элементов */
+.locked {
+    pointer-events: none; /* Блокируем взаимодействие с элементами */
+    background-color: #ffffff; /* Можно задать фон для заблокированных элементов */
+    color: #AEADAE; /* Цвет текста для заблокированных элементов */
+}
+
+/* Стили для первого выпадающего списка при наведении */
+.dropdown-container .dropdown:first-child input:hover {
+    border-bottom-color: #3E29E3; /* Цвет нижней границы синего при наведении на первый список */
+}
+
+/* Убедимся, что выбранные элементы остаются синими */
+.dropdown-container .dropdown:first-child input[style*="border-bottom-color: #007bff"] {
+    border-bottom-color: #3E29E3; /* Синий цвет для выбранного элемента */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+    .dropdown {
+        width: 280px;
+    }
+    .dropdown-item {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 735px) {
+    .dropdown {
+        width: 280px;
+    }
+    .dropdown-item {
+        font-size: 12px;
+        padding: 6px;
+    }
+}
+
+
+
+

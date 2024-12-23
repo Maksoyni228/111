@@ -1,0 +1,111 @@
+.ui section {
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+    background-color: #ffffff;
+}
+
+/* Контейнеры для компонентов */
+.email-inputs-container {
+    margin-top: 20px;
+    display: flex; /* Для размещения полей в строку */
+    gap: 18%; /* Отступы между полями */
+    justify-content: flex-start; /* Выравнивание полей по левому краю */
+    width: 100%; /* Контейнер занимает всю ширину */
+    flex-wrap: wrap;
+    color: #7D7D7D;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+
+}
+
+.dropdown-container {
+    margin-top: 20px;
+    display: flex; /* Для размещения списков в строку */;
+    gap: 18%; /* Расстояние между выпадающими списками */
+    margin-bottom: 200px; /* Отступ снизу для выпадающих списков */
+    justify-content: flex-start; /* Располагаем элементы по левому краю */
+    align-items: center; /* Центрируем по вертикали */
+    position: relative; /* Убираем перекрытие выпадающих списков */
+    flex-wrap: wrap;
+}
+
+.buttons-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Адаптивность */
+@media (max-width: 1199px) {
+    .email-inputs-container {
+        gap: 10%; /* Уменьшение отступов между полями */
+    }
+    .dropdown-container {
+        gap: 8%; /* Уменьшение расстояния между списками */
+        margin-bottom: 150px;
+    }
+}
+
+@media (max-width: 735px) {
+    .email-inputs-container {
+        gap: 5%;
+        justify-content: center; /* Центрирование полей */
+    }
+    .dropdown-container {
+        gap: 5%;
+        flex-direction: column; /* Списки в колонку */
+        align-items: flex-start;
+        margin-bottom: 100px;
+    }
+    .buttons-container {
+        align-items: center; /* Центрирование кнопок */
+    }
+    .row {
+        flex-direction: column; /* Перенос элементов в колонку */
+        align-items: flex-start;
+    }
+
+    .ui h2 {
+        font-size: 28px;
+        line-height: 36px;
+        font-weight: 800;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+    .ui h3 {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 500;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+}
+
+.ui h6 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.buttons-container h5 {
+    color: #7D7D7D;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

@@ -1,0 +1,115 @@
+/* Контейнер для аккордеонов */
+.accordion-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Общий стиль аккордеона */
+.accordion {
+    cursor: pointer;
+    padding: 15px 0;
+    position: relative;
+    font-size: 16px;
+    color: #7D7D7D;
+    border-bottom: 1px solid #7D7D7D;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Состояние hover */
+.accordion.hover {
+    color: #1B1B1B;
+    border-color: #3D28E3;
+}
+
+/* Состояние selected */
+.accordion.selected {
+    color: #3E29E3;
+    border-color: #3D28E3;
+    border-bottom: 2px solid #3D28E3; /* Линия под аккордеоном */
+}
+
+/* Заголовок аккордеона */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+/* Стрелка */
+.arrow {
+    display: block;
+    position: relative;
+    width: 10px;
+    height: 10px;
+}
+
+.arrow::before,
+.arrow::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: #3D28E3;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.arrow::before {
+    transform: rotate(45deg);
+    top: 4px;
+    left: -6px;
+}
+
+.arrow::after {
+    transform: rotate(-45deg);
+    top: 4px;
+    left: 0;
+}
+
+/* Стрелка в открытом состоянии */
+.arrow.open::before {
+    transform: rotate(-45deg);
+}
+
+.arrow.open::after {
+    transform: rotate(45deg);
+}
+
+/* Контент аккордеона */
+.accordion-content {
+    overflow: hidden;
+    font-size: 16px;
+    color: #1B1B1B;
+    line-height: 24px;
+    font-weight: 400;
+    transition: max-height 0.4s ease;
+}
+
+.accordion-content.open {
+    display: block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+    .accordion {
+        font-size: 16px;
+    }
+    .accordion-content {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 735px) {
+    .accordion {
+        font-size: 16px;
+    }
+    .accordion-content {
+        font-size: 16px;
+    }
+}
+
